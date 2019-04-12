@@ -1,0 +1,104 @@
+
+
+h1, h2 {
+    /* text-transform: lowercase; */
+font-family: 'Syncopate', sans-serif;
+text-shadow: 4px 4px 4px #aaa;
+}
+
+/* input,p, textarea, label, a, button, td {
+font-family: 'Quicksand', sans-serif;
+} */
+
+html {
+font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    /* background-color: whitesmoke; */
+    background-color: lightgray;
+}
+
+hr {
+    width: 85%;
+    justify-content: flex-start;
+}
+
+.navbar {
+    box-shadow: 5px 0 15px grey;;
+}
+
+/* =================================== */
+/* footer */
+
+footer {
+    background-color: darkslategrey;
+    clear: both;
+    color: white;
+    padding-top: 5px;
+    width: 100%;
+    bottom: 0;
+    position: relative;    
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    color: lime;
+}
+
+/* ========================================
+contact form */
+
+.contactBtns {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-orient: vertical;
+   -webkit-box-direction: normal;
+       -ms-flex-direction: column;
+           flex-direction: column;
+   width: 30%;
+}
+.contactBtn {
+    background-color: blue;
+    color: white;
+}
+
+/* ===========================================
+home page */
+
+#homeImageDiv {
+    display:flex; 
+    justify-content: center; 
+    width: 100%; 
+    align-items: center;
+    margin-top: 50px;
+}
+
+#homeImg {
+    width: 50%;
+    border: 2px solid darkgrey;
+    border-radius: 7px;
+    padding: 5px 5px;
+}
+
+/* =====================================
+media screen sizes */
+
+@media screen and (max-width: 768px) {
+    #homeImg {
+        width: 100%;
+    }
+ 
+    .navbar-toggler-icon {
+        border: 1px solid white;
+        background-color: white;
+        background-image: url('https://img.icons8.com/clouds/100/000000/menu.png')
+    }
+    
+}
+
+
