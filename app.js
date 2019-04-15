@@ -2,6 +2,8 @@ const express = require("express"),
     app = express();
     var session = require('express-session');
     const bodyParser = require('body-parser');
+    // const path = require('path')
+    const fs = require('fs')
     
 
     
@@ -34,7 +36,8 @@ app.use(session({
     cookie: { maxAge: 3600000 } //1 hour
   }))
 
-// const   screenRoutes  =  require('./public/routes/screenRoutes');
+const   screenRoutes  =  require('./public/routes/screenRoutes'),
+        storeRoutes    =  require('./public/routes/store');
         
 app.get('/', (req, res)=>{
   res.render('../views/index', {
@@ -42,7 +45,8 @@ app.get('/', (req, res)=>{
   })
 })
 
-// app.use(screenRoutes);
+app.use(screenRoutes);
+app.use(storeRoutes);
 
 app.listen(port, () => {
     console.log(`App is running on Port: ${port}`);

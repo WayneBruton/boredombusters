@@ -1,0 +1,56 @@
+<% include ../partials/header %>
+<section class="about-us" id="about" style="margin-top: 65px; width: 100vw; min-height: 80vh;">
+    <div class="container" style="align-content: center; width: 75vw;">
+        <br><br>
+        <div class="row">
+            <div class="col-md-12 col-xs-12 text-center">
+                <h1 class="section-title">Come Shop with us!</h1>
+            </div>
+
+        </div>
+        <div id="cartSummary" style="display: flex; justify-content: flex-end;">
+            <button class="btn btn-primary boredomBtn viewCart" style="margin-right: 5px;">View/Checkout</button>
+            <div id="cartCount" style="display: flex;">
+                <!-- <div style="margin-right: 10px;">Cart:</div> -->
+                <i class="fas fa-shopping-cart fa-2x" style="margin-right: 10px; color: #2b2b28;"></i>
+                <div
+                    style="width: 30px; height: 30px; border: 1px solid green; background-color: green; border-radius: 50%; display: flex; justify-content: center;">
+                    <div style="display: flex; flex-direction: column; justify-content: flex-start;">
+                        <p id="orderTotalQty" style="color: white; font-weight: bold;">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div id="stockItems">
+        </div>
+        <div id="individualstockItem" style="display: none">
+        </div>
+        <div id="shoppingCart" style="display: none">
+            <h1>CART</h1><br>
+            <div style="display: flex; width: 100%">
+            <ol id="cartItems" style="width: 65%">
+                <li>Testing</li>
+                <li>Testing</li>
+                <li>Testing</li>
+                <li>Testing</li>
+            </ol>
+            <div id="cartValues" style="margin-left: 10px; width: 35%; border: 1px solid grey; padding: 5px 5px; border-radius: 7px;">
+                <div style="display: flex; justify-content: space-between">
+                    <label for="">Item1:</label>
+                    <input type="text" value="R100.00">
+                </div>
+
+            </div>
+        </div>
+            <div id="alert" style="height: 50px; border: 1px solid lightgreen; background-color: lightgreen; border-radius: 7px; display: none;">
+                Client fills in details, pays, he/she gets an invoice from you, you take goods to postNet. Deal Done!!!
+            </div>
+            <button id="checkoutBtn" style="float: right; margin-top: 10px;" class="btn btn-primary boredomBtn">Checkout</button><br><br>
+            <button class="btn btn-primary boredomBtn return">Continue Shopping</button>
+        </div>
+    </div>
+</section>
+<!--======== end about us =========-->
+<script src="../../js/store.js"></script>
+<% include ../partials/footer %>

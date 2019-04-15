@@ -1,17 +1,31 @@
 
+@font-face {
+    font-family: "MyFont1";
+    src: url('../balloonxbdbtextrabold.ttf') format("truetype");
+}
+@font-face {
+    font-family: "MyFont2";
+    src: url('../balonxb.ttf') format("truetype");
+}
 
-h1, h2 {
+
+
+
+
+h1,
+h2,h3, h4, h5, h6 {
     /* text-transform: lowercase; */
-font-family: 'Syncopate', sans-serif;
-text-shadow: 4px 4px 4px #aaa;
+    font-family: 'MyFont1', sans-serif;
+    text-shadow: 4px 4px 4px #aaa;
 }
 
 /* input,p, textarea, label, a, button, td {
 font-family: 'Quicksand', sans-serif;
 } */
 
-html {
-font-family: 'Quicksand', sans-serif;
+html, p {
+    font-family: 'Quicksand', sans-serif;
+    /* font-family: 'MyFont2', sans-serif; */
 }
 
 body {
@@ -25,7 +39,8 @@ hr {
 }
 
 .navbar {
-    box-shadow: 5px 0 15px grey;;
+    box-shadow: 10px 0 30px grey;
+    ;
 }
 
 /* =================================== */
@@ -38,7 +53,7 @@ footer {
     padding-top: 5px;
     width: 100%;
     bottom: 0;
-    position: relative;    
+    position: relative;
 }
 
 footer a {
@@ -53,27 +68,35 @@ footer a:hover {
 contact form */
 
 .contactBtns {
-   display: -webkit-box;
-   display: -ms-flexbox;
-   display: flex;
-   -webkit-box-orient: vertical;
-   -webkit-box-direction: normal;
-       -ms-flex-direction: column;
-           flex-direction: column;
-   width: 30%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 30%;
 }
-.contactBtn {
-    background-color: blue;
+
+.boredomBtn {
+    /* background-color: black; */
+    background-color: #2b2b28;
+    /* border: black; */
+    border: #2b2b28;
     color: white;
+}
+.boredomBtn:hover {
+    background-color: gray;
+    border: darkgray;
 }
 
 /* ===========================================
 home page */
 
 #homeImageDiv {
-    display:flex; 
-    justify-content: center; 
-    width: 100%; 
+    display: flex;
+    justify-content: center;
+    width: 100%;
     align-items: center;
     margin-top: 50px;
 }
@@ -85,6 +108,85 @@ home page */
     padding: 5px 5px;
 }
 
+/* =========================================
+stock Items */
+
+#stockItems {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin-top: 2rem;
+}
+.card-body {
+    border: 1px solid white;
+    border-radius: 7px;
+    box-shadow: 5px 10px #aaa;
+    padding: 10px;
+}
+
+.storeImage {
+    border: 1px solid slategrey;
+    border-radius: 7px;
+    padding: 2px 2px;
+    box-shadow: 2px 4px #aaa;
+}
+
+#individualstockItem {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+}
+#individualstockImg {
+    border: 1px solid black;
+    border-radius: 7px;
+    box-shadow: 4px 8px #aaa;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 50%;
+    margin-right: 50px;
+    margin-bottom: 3rem;
+}
+#stockImg {
+    width: 100%;   
+}
+#stockDetail {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    width: 85%;
+}
+#orderDetail {
+    display:flex; 
+    flex-direction: column;
+    align-content: flex-end;
+    
+}
+
+.orderDetailItems {
+    display: flex;
+    justify-content: space-between;
+    margin: 9px 0;
+}
+
+.orderDetailItemsLabel {
+    font-weight: bold;
+} 
+
+.cartItems:hover, #cartItemQty:hover {
+    background-color: grey;
+}
+.cartItems {
+    border: 1px solid grey;
+    border-radius: 7px;
+    padding: 5px 5px;
+}
+
+
 /* =====================================
 media screen sizes */
 
@@ -92,13 +194,47 @@ media screen sizes */
     #homeImg {
         width: 100%;
     }
- 
+
     .navbar-toggler-icon {
         border: 1px solid white;
         background-color: white;
         background-image: url('https://img.icons8.com/clouds/100/000000/menu.png')
     }
-    
+    .card {
+        margin-top: 2rem;
+        /* width:100vw; */
+
+    }
+    #stockItems {
+        flex-direction: column;
+        align-content: center;
+        width: 100%;
+
+    }
+    .orderDetailItems {
+        flex-direction: column;
+    }
+    #cartSummary {
+        flex-direction: column;
+    }
+    #cartCount {
+        margin-top: 20px;
+        justify-content: space-around;
+    }
+
+    #stockItemMobile {
+        flex-direction: column;
+    }
+    #individualstockImg {
+        width: 100%;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    #thisStockItem {
+        flex-direction: column;
+    }
+    .boredomBtn {
+        width: 100%;
+    }
+
 }
-
-

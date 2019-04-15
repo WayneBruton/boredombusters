@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+<section class="about-us" id="about" style="margin-top: 65px; width: 100vw; min-height: 80vh;">
+    <div class="container" style="align-content: center; width: 75vw;">
+        <br><br>
+        <div class="row">
+            <div class="col-md-12 col-xs-12 text-center">
+                <h1 class="section-title">Shopping Cart!</h1>
+                <input type="text" value="<%= data %>">
+            </div>
+
+        </div>
+        <div style="display: flex; justify-content: flex-end;">
+            <button class="btn btn-primary boredomBtn viewCart" style="margin-right: 5px;">View/Checkout</button>
+            <div style="margin-right: 10px;">Cart:</div>
+            <div
+                style="width: 30px; height: 30px; border: 1px solid green; background-color: green; border-radius: 50%; display: flex; justify-content: center;">
+                <div style="display: flex; flex-direction: column; justify-content: flex-start;">
+                    <p id="orderTotalQty" style="color: white; font-weight: bold;">0</p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div id="stockItems">
+        </div>
+        <div id="individualstockItem" style="display: none">
+        </div>
+    </div>
+</section>
+<!--======== end about us =========-->
+<script src="../../js/cart.js"></script>
+<% include ../partials/footer %>
