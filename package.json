@@ -15,6 +15,7 @@
     "chart.js": "^2.8.0",
     "concat-stream": "^2.0.0",
     "connect-flash": "^0.1.1",
+    "convert-csv-to-json": "0.0.14",
     "cookie-session": "^2.0.0-beta.3",
     "cors": "^2.8.5",
     "cron": "^1.7.0",

@@ -1,0 +1,145 @@
+<% include ../partials/header %>
+<section class="about-us" id="about" style="margin-top: 65px; width: 100%; min-height: 80vh;">
+    <div class="container checkoutForm" style="align-content: center; width: 75%;">
+        <br><br>
+        <input id="order_number" type="text" value="<%= order_number %>" hidden>
+        <input id="returnURL" type="text" value="<%= returnURL %>" hidden>
+        <form id="registrationForm" class="form-horizontal" role="form" method="" action="">
+            <h1  id="heading" style="text-align: center;">Check Out!</h1>
+            <div class="checkoutRow">
+                <label for="email" class="col-md-3 control-label" style="text-align: left">Email Address</label>
+                <div class="col-md-6">
+                    <input class="ifExisting" type="email" id="email" class="form-control" name="email"
+                        placeholder="email address" required>
+                </div>
+            </div>
+            <div class="checkoutRow">
+                <label for="first_name" class="col-md-3 control-label">First Name</label>
+                <div class="col-md-6">
+                    <input class="ifExisting"  type="text" id="first_name" class="form-control" name="first_name"
+                        placeholder="First Name" required>
+                </div>
+            </div>
+            <div class="checkoutRow">
+                <label for="last_name" class="col-md-3 control-label">Last Name</label>
+                <div class="col-md-6">
+                    <input  class="ifExisting" type="text" id="last_name" class="form-control" name="last_name"
+                        placeholder="Last Name" required>
+                </div>
+            </div>
+            <div class="checkoutRow">
+                <label for="contact_number" class="col-md-3 control-label">Contact Number</label>
+                <div class="col-md-6">
+                    <input  class="ifExisting" type="text" id="contact_number" class="form-control" name="contact_number"
+                        placeholder="Contact Number" required>
+                </div>
+            </div>
+            <div class="checkoutRow">
+                <label for="delivery_address1" class="col-md-3 control-label">Delivery Address</label>
+                <div class="col-md-6">
+                    <input  class="ifExisting" type="text" id="delivery_address1" class="form-control" name="delivery_address1"
+                        placeholder="Delivery Address1" required>
+                </div>
+            </div>
+            <div class="checkoutRow">
+                    <label for="delivery_address2" class="col-md-3 control-label"></label>
+
+                <div class="col-md-6">
+                    <input  class="ifExisting" type="text" id="delivery_address2" class="form-control" name="delivery_address2"
+                        placeholder="Delivery Address2">
+                </div>
+            </div>
+            <div class="checkoutRow">
+                    <label for="delivery_address3" class="col-md-3 control-label"></label>
+
+                <div class="col-md-6">
+                    <input  class="ifExisting" type="text" id="delivery_address3" class="form-control" name="delivery_address3"
+                        placeholder="Delivery Address3">
+                </div>
+            </div>
+            <div class="checkoutRow">
+                    <label for="suburb" class="col-md-3 control-label">Suburb</label>
+                    <div class="col-md-6">
+                        <input  class="ifExisting" type="text" id="suburb" class="form-control" name="suburb"
+                            placeholder="Suburb" required>
+                    </div>
+                </div>
+            <div class="checkoutRow">
+                    <label for="city" class="col-md-3 control-label">City</label>
+                    <div class="col-md-6">
+                        <select  class="ifExisting" name="" id="city" style="width: 100%;">
+                            <option value=""></option>
+                        </select>
+                        <input  class="ifExisting" id="cityInput" type="text" id="city" class="form-control" name="city"
+                            placeholder="city" hidden>
+                    </div>
+                </div>
+            <div class="checkoutRow">
+                    <label for="province" class="col-md-3 control-label">Province</label>
+                    <div class="col-md-6">
+                            <select  class="ifExisting" name="" id="province" style="width: 100%;">
+                                    <option value=""></option>
+                                </select>
+                        <input  class="ifExisting" id="provinceInput" type="text" id="province" class="form-control" name="province"
+                            placeholder="Province" hidden>
+                    </div>
+                </div>
+            <div class="checkoutRow">
+                    <label for="postal_code" class="col-md-3 control-label">Postal Code</label>
+                    <div class="col-md-6">
+                        <input  class="ifExisting" type="text" id="postal_code" class="form-control" name="postal_code"
+                            placeholder="Postal Code" required>
+                    </div>
+                </div>
+            <div class="" style="margin-top: 25px;">
+            <!-- <input id="payNow" class="btn btn-primary boredomBtn return" type="submit" value="PayNow"> -->
+            <button id="payNow" type="submit" style="border: none; background-color: lightgray;"><img src="https://www.payfast.co.za/images/buttons/light-small-paynow.png" width="165" height="36" alt="Pay" title="Pay Now with PayFast" /></button>
+            <input  class="btn btn-primary boredomBtn return"type="reset" value="Reset">
+        </div>
+        </form>      
+    </div>
+</section>
+
+
+
+<div id="checkedEmail" style="width: 300px; height: 225px; background-color:#aaa ;border: 1px solid grey; border-radius: 7px; padding: 5px 5px; position: absolute;z-index: 5; top: 150px; left: 500px;display: none; flex-direction: column; text-align: center; align-items: space-around;">
+    <p> This Client already exists - is this you?</p> 
+    <p>if "Yes" - you can use this info and edit accordingly.</p> 
+    <p>If "No" - you must use a different email address.</p>
+    <div style="display: flex; justify-content: space-evenly">
+    <button id="yesBtn" class="btn btn-primary boredomBtn return">Yes</button>
+    <button id="noBtn" class="btn btn-primary boredomBtn return">No</button>
+</div>
+</div>
+
+<!-- <script language="JavaScript" type="text/javascript">
+
+    function click_b2e18431c5b52374d2183a2bfeef7fc3( aform_reference ) {
+                var aform = aform_reference;
+                aform['amount'].value = Math.round( aform['amount'].value*Math.pow( 10,2 ) )/Math.pow( 10,2 );
+    }
+    
+    </script>
+    
+    <form action="https://www.payfast.co.za/eng/process" name="form_b2e18431c5b52374d2183a2bfeef7fc3" onsubmit="return click_b2e18431c5b52374d2183a2bfeef7fc3( this );" method="post">
+    <input type="hidden" name="cmd" value="_paynow">
+    <input type="hidden" name="receiver" value="10469596">
+    <input type="hidden" name="item_name" value="Stuff">
+    <input id="toPay" type="hidden" name="amount" value="10.20">
+    <input id="itemDescription" type="hidden" name="item_description" value="">
+    <input type="hidden" name="return_url" value="https://www.eccentrictoad.com">
+    <input type="hidden" name="cancel_url" value="https://www.eccentrictoad.com">
+    
+    <table>
+    <tr><td colspan=2 align=center><input type="image" src="https://www.payfast.co.za/images/buttons/light-small-paynow.png" width="165" height="36" alt="Pay Now" title="Pay Now with PayFast"></td></tr></table>
+    </form> -->
+
+
+    <!-- <a href="https://www.payfast.co.za/eng/process?cmd=_paynow&amp;receiver=10469596&amp;item_name=WayneTest&amp;item_description=Testing+this&amp;amount=144.45&amp;return_url=https%3A%2F%2Fwww.eccentrictoad.com&amp;cancel_url=https%3A%2F%2Fwww.eccentrictoad.com"><img src="https://www.payfast.co.za/images/buttons/light-small-paynow.png" width="165" height="36" alt="Pay" title="Pay Now with PayFast" /></a> -->
+    <a id="makePayment" href=""></a>
+
+<!--======== end about us =========-->
+<script src="../../js/postalCodes.js"></script>
+<script src="../../js/checkout.js"></script>
+<script src="../../js/za.js"></script>
+<% include ../partials/footer %>

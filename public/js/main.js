@@ -14,5 +14,12 @@ $(function () {
           $(this).attr("src", images[i]);
           $(this).fadeIn(2000);
         });
-      }, 2000); 
+      }, 2500); 
+
+      $('#night').click((e)=>{
+        e.preventDefault();
+        $('body').css('background-color', '##2b2b28')
+        $('body').css('color', 'whitesmoke')
+        
+      })
 });

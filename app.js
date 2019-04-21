@@ -4,6 +4,27 @@ const express = require("express"),
     const bodyParser = require('body-parser');
     // const path = require('path')
     const fs = require('fs')
+  //   let csvToJson = require('convert-csv-to-json');
+
+
+   
+  //   let fileInputName = 'postalcodes.csv'; 
+  //   let fileOutputName = 'postalcodes.json';
+     
+  //   // csvToJson.generateJsonFileFromCsv(fileInputName,fileOutputName);
+
+  //  let json =  csvToJson.formatValueByType().getJsonFromCsv(fileInputName);
+  //  console.log(json)
+ 
+
+//     let json = csvToJson.getJsonFromCsv("postalcodes.csv");
+// for(let i=0; i<json.length;i++){
+//     console.log(json[i]);
+
+// }
+
+
+
     
 
     
@@ -38,6 +59,7 @@ app.use(session({
 
 const   screenRoutes  =  require('./public/routes/screenRoutes'),
         storeRoutes    =  require('./public/routes/store');
+        checkOutRoutes    =  require('./public/routes/paymentRoute');
         
 app.get('/', (req, res)=>{
   res.render('../views/index', {
@@ -47,6 +69,7 @@ app.get('/', (req, res)=>{
 
 app.use(screenRoutes);
 app.use(storeRoutes);
+app.use(checkOutRoutes);
 
 app.listen(port, () => {
     console.log(`App is running on Port: ${port}`);

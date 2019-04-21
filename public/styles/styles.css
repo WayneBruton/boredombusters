@@ -43,6 +43,25 @@ hr {
     ;
 }
 
+/* =========================================
+checkout */
+
+.checkoutRow {
+    display:flex;
+    margin-top: 3px;
+    padding: 3px 3px;
+    width: 100%;
+    /* align-items: center; */
+}
+.checkoutRow:hover {
+   background-color: #aaa;
+}
+.ifExisting {
+    width: 100%;
+}
+
+
+
 /* =================================== */
 /* footer */
 
@@ -84,6 +103,7 @@ contact form */
     /* border: black; */
     border: #2b2b28;
     color: white;
+
 }
 .boredomBtn:hover {
     background-color: gray;
@@ -235,6 +255,30 @@ media screen sizes */
     }
     .boredomBtn {
         width: 100%;
+    }
+    #shoppingCart {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #wholeCart {
+        flex-direction: column;
+    }
+  .cartItems {
+        width: 100vw;
+        margin: 0 0;
+
+        flex-direction: column;
+    }
+    #summary {
+        width: 100vw;
+    }
+    #cartValues {
+        width: 100vw;
+    }
+    .checkoutForm {
+        width: 100vw;
     }
 
 }
