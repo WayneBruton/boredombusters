@@ -5,6 +5,7 @@ $(function() {
   let totalCartItem = 0;
   let deliveryCost = 99.0; //HARD CODED FOR NOW!!
   let nett = 0;
+  // window.localStorage.clear()
   // window.localStorage.removeItem("myIPAddress");
   // window.localStorage.removeItem("cart");
   let myIPAddress = "";

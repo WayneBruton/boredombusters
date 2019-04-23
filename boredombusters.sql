@@ -94,7 +94,7 @@ create table invoices (
     id INT AUTO_INCREMENT PRIMARY KEY,
     order_number varchar(100) not null,
     client_id int not null,
-    total_Value decimal(5,2) not null,
+    total_Value decimal(11,2) not null,
     invoice_date TIMESTAMP DEFAULT NOW(),
     FOREIGN KEY (order_number) REFERENCES orders(order_number)
 );

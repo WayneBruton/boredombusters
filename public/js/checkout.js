@@ -226,13 +226,20 @@ $(function() {
                   .done((response)=>{
                     successURL = response;
                     console.log('success',successURL)
-                    let relocationToPay = `https://www.payfast.co.za/eng/process?cmd=_paynow&amp;receiver=10469596&amp;item_name=BoredomBusters&amp;item_description=Boredom+Busters&amp;amount=${totalValue}&amp;return_url=https%3A%2F%2Fwww.boredombusters.co.za/successFullPayment/${successURL}.com&amp;cancel_url=https%3A%2F%2Fwww.boredombusters.co.za/checkout/${failURL}`
-                    $('#makePayment').attr('href', relocationToPay)
-                    // console.log($('#makePayment').prop('href'))
-                    // console.log($('#makePayment').attr('href'))
-                    $('#makePayment')[0].click()
-                    // window.location.href=relocationToPay
+                    console.log('Fail', failURL)
+                    console.log(totalValue)
+                    let returnURLPF = `https://www.boredombusters.co.za/${successURL}`
+                    let failURLPF = `https://www.boredombusters.co.za/${failURL}`
+                    $('#toPayPF').val(totalValue)
+                    $('#returnURLPF').val(returnURLPF)
+                    $('#failURLPF').val(failURLPF)
+                    $('#letsPayNow').submit()
 
+                    // $('#returnURL').val()
+                    // let relocationToPay = 
+                                      //  `https://www.payfast.co.za/eng/process?cmd=_paynow&amp;receiver=10469596&amp;item_name=BoredomBusters&amp;item_description=Boredom+Busters&amp;amount=${totalValue}&amp;return_url=https%3A%2F%2Fwww.boredombusters.co.za/successFullPayment/${successURL}&amp;cancel_url=https%3A%2F%2Fwww.bordombusters.co.za/checkout/${failURL}`
+                    // $('#Test').attr('href', relocationToPay)
+                    // $('#Test')[0].click()
                   })
               })
               

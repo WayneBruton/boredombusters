@@ -5,7 +5,8 @@
         <input id="order_number" type="text" value="<%= order_number %>" hidden>
         <input id="returnURL" type="text" value="<%= returnURL %>" hidden>
         <form id="registrationForm" class="form-horizontal" role="form" method="" action="">
-            <h1  id="heading" style="text-align: center;">Check Out!</h1>
+            <h1  id="heading" style="text-align: center;"><img src="/images/heart_PNG51352.png" alt="Logo" style="width: 60px;">Check Out!</h1>
+            <hr>
             <div class="checkoutRow">
                 <label for="email" class="col-md-3 control-label" style="text-align: left">Email Address</label>
                 <div class="col-md-6">
@@ -91,8 +92,8 @@
                             placeholder="Postal Code" required>
                     </div>
                 </div>
-            <div class="" style="margin-top: 25px;">
-            <!-- <input id="payNow" class="btn btn-primary boredomBtn return" type="submit" value="PayNow"> -->
+                <hr>
+            <div class="" style="margin-top: 25px; display: flex; justify-content: space-evenly;">
             <button id="payNow" type="submit" style="border: none; background-color: lightgray;"><img src="https://www.payfast.co.za/images/buttons/light-small-paynow.png" width="165" height="36" alt="Pay" title="Pay Now with PayFast" /></button>
             <input  class="btn btn-primary boredomBtn return"type="reset" value="Reset">
         </div>
@@ -112,7 +113,7 @@
 </div>
 </div>
 
-<!-- <script language="JavaScript" type="text/javascript">
+<script language="JavaScript" type="text/javascript">
 
     function click_b2e18431c5b52374d2183a2bfeef7fc3( aform_reference ) {
                 var aform = aform_reference;
@@ -121,23 +122,18 @@
     
     </script>
     
-    <form action="https://www.payfast.co.za/eng/process" name="form_b2e18431c5b52374d2183a2bfeef7fc3" onsubmit="return click_b2e18431c5b52374d2183a2bfeef7fc3( this );" method="post">
+    <form id="letsPayNow" action="https://www.payfast.co.za/eng/process" name="form_b2e18431c5b52374d2183a2bfeef7fc3" onsubmit="return click_b2e18431c5b52374d2183a2bfeef7fc3( this );" method="post" style="display: none">
     <input type="hidden" name="cmd" value="_paynow">
     <input type="hidden" name="receiver" value="10469596">
-    <input type="hidden" name="item_name" value="Stuff">
-    <input id="toPay" type="hidden" name="amount" value="10.20">
-    <input id="itemDescription" type="hidden" name="item_description" value="">
-    <input type="hidden" name="return_url" value="https://www.eccentrictoad.com">
-    <input type="hidden" name="cancel_url" value="https://www.eccentrictoad.com">
+    <input type="hidden" name="item_name" value="Boredom Busters">
+    <input id="toPayPF" type="hidden" name="amount" value="10.20">
+    <input id="itemDescription" type="hidden" name="item_description" value="BoredomBuster">
+    <input id="returnURLPF"type="hidden" name="return_url" value="https://www.boredombusters.co.za/">
+    <input id="failURLPF" type="hidden" name="cancel_url" value="https://www.boredombusters.co.za/">
     
     <table>
     <tr><td colspan=2 align=center><input type="image" src="https://www.payfast.co.za/images/buttons/light-small-paynow.png" width="165" height="36" alt="Pay Now" title="Pay Now with PayFast"></td></tr></table>
-    </form> -->
-
-
-    <!-- <a href="https://www.payfast.co.za/eng/process?cmd=_paynow&amp;receiver=10469596&amp;item_name=WayneTest&amp;item_description=Testing+this&amp;amount=144.45&amp;return_url=https%3A%2F%2Fwww.eccentrictoad.com&amp;cancel_url=https%3A%2F%2Fwww.eccentrictoad.com"><img src="https://www.payfast.co.za/images/buttons/light-small-paynow.png" width="165" height="36" alt="Pay" title="Pay Now with PayFast" /></a> -->
-    <a id="makePayment" href=""></a>
-
+    </form>
 <!--======== end about us =========-->
 <script src="../../js/postalCodes.js"></script>
 <script src="../../js/checkout.js"></script>
