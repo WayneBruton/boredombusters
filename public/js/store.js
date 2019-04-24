@@ -302,13 +302,13 @@ $(function() {
   $("#checkoutBtn").click(e => {
     // window.localStorage.removeItem("cart");
 
-    let url = `/checkoutReference/${myIPAddress}`
-    $.get(url).done((response)=>{
-      console.log(response)
-      let url = `/checkout/${response}`
-      window.location.href = url
-    })
-    
+    let url = `/checkoutReference/${myIPAddress}`;
+    $.get(url).done(response => {
+      console.log(response);
+      let url = `/checkout/${response}`;
+      window.location.href = url;
+    });
+
     // $("#alert").css("display", "block");
     // setTimeout(() => {
     //   $("#alert").css("display", "none");
@@ -320,52 +320,53 @@ $(function() {
   let finalCart = [];
   function getCart() {
     //BUSY ON THIS I AM HERE
-    if (finalorder.length) {
-      createUniqueOrderNumber();
-      $("#cartItems").empty();
-      $("#cartValues").empty();
-      // $("#cartItems").focus();
-      let data = JSON.stringify(finalorder);
-      let url = "/getCart";
-      $.ajax({
-        url: url,
-        type: "POST",
-        data: data,
-        success: data => {},
-        contentType: "application/json",
-        dataType: "json"
-      }).done(response => {
-        console.log(finalorder);
-        finalCart = response;
-        console.log(finalCart);
-        finalCart.forEach(el => {
-          finalorder.forEach(fo => {
-            if (fo.id === el.id) {
-              el.purchaseQty = fo.qty;
-              el.salesPrice = el.purchaseQty * el.price;
-              el.purchaseWeight = el.purchaseQty * el.product_weight;
-              el.salesPriceString = convertToString(el.salesPrice);
-              el.order_number = myIPAddress;
-            }
+  
+      if (finalorder.length) {
+        createUniqueOrderNumber();
+        $("#cartItems").empty();
+        $("#cartValues").empty();
+        // $("#cartItems").focus();
+        let data = JSON.stringify(finalorder);
+        let url = "/getCart";
+        $.ajax({
+          url: url,
+          type: "POST",
+          data: data,
+          success: data => {},
+          contentType: "application/json",
+          dataType: "json"
+        }).done(response => {
+          console.log(finalorder);
+          finalCart = response;
+          console.log(finalCart);
+          finalCart.forEach(el => {
+            finalorder.forEach(fo => {
+              if (fo.id === el.id) {
+                el.purchaseQty = fo.qty;
+                el.salesPrice = el.purchaseQty * el.price;
+                el.purchaseWeight = el.purchaseQty * el.product_weight;
+                el.salesPriceString = convertToString(el.salesPrice);
+                el.order_number = myIPAddress;
+              }
+            });
           });
-        });
-        let url = `/clearCart/${myIPAddress}`;
-        $.get(url).done(response => {
-          let data = JSON.stringify(finalCart);
-          let url = `/createCart`;
-          $.ajax({
-            url: url,
-            type: "POST",
-            data: data,
-            success: data => {},
-            contentType: "application/json",
-            dataType: "json"
-          }).done(response => {
-            let url = `/getCurrentCart/${myIPAddress}`;
-            $.get(url).done(response => {
-              console.log(response);
-              response.forEach(el => {
-                let item = `<li class="cartItems" style="width: 100%; display: flex; justify-content: space-between; margin: 5px 0;">
+          let url = `/clearCart/${myIPAddress}`;
+          $.get(url).done(response => {
+            let data = JSON.stringify(finalCart);
+            let url = `/createCart`;
+            $.ajax({
+              url: url,
+              type: "POST",
+              data: data,
+              success: data => {},
+              contentType: "application/json",
+              dataType: "json"
+            }).done(response => {
+              let url = `/getCurrentCart/${myIPAddress}`;
+              $.get(url).done(response => {
+                console.log(response);
+                response.forEach(el => {
+                  let item = `<li class="cartItems" style="width: 100%; display: flex; justify-content: space-between; margin: 5px 0;">
                             <img style="width: 50px; height: 50px; border: 1px solid grey; border-radius:7px;"src="${
                               el.product_image
                             }" alt="">
@@ -381,46 +382,47 @@ $(function() {
                             }" class="btn btn-primary boredomBtn removeItem" style="margin: 0 2px;">X</button>
                         </li>
                         `;
-                $(item).appendTo("#cartItems");
-                let cartAmounts = `<div style="display: flex; justify-content: space-between; width:100%;">
+                  $(item).appendTo("#cartItems");
+                  let cartAmounts = `<div style="display: flex; justify-content: space-between; width:100%;">
                                 <label for="">${el.item_name}:</label>
                                 <input style="border: none; background-color: lightgrey; text-align: right; margin-right: 7px;" type="text" value="${
                                   el.salesPriceString
                                 }">
                                   </div>`;
-                $(cartAmounts).appendTo("#cartValues");
-              });
-              let subtotal = response.reduce((prev, curr) => {
-                prev += curr.sales_value;
-                return prev;
-              }, 0);
-              let delivery = response.reduce((prev, curr) => {
-                prev += curr.sales_weight;
-                return prev;
-              }, 0);
-              if (delivery < 5) {
-                delivery = 99;
-              } else {
-                let round = delivery - 5
-                if (Math.trunc(round) !== round) {
-                  round++
+                  $(cartAmounts).appendTo("#cartValues");
+                });
+                let subtotal = response.reduce((prev, curr) => {
+                  prev += curr.sales_value;
+                  return prev;
+                }, 0);
+                let delivery = response.reduce((prev, curr) => {
+                  prev += curr.sales_weight;
+                  return prev;
+                }, 0);
+                if (delivery < 5) {
+                  delivery = 99;
+                } else {
+                  let round = delivery - 5;
+                  if (Math.trunc(round) !== round) {
+                    round++;
+                  }
+                  delivery = 99 + round * 20;
                 }
-                delivery = 99 + (round * 20)
-              }
-              let nett = subtotal + delivery;
-              subtotal = convertToString(subtotal);
-              delivery = convertToString(delivery);
-              nett = convertToString(nett);
-              $("#subtotal").val(subtotal);
-              $("#delivery").val(delivery);
-              $("#nett").val(nett);
+                let nett = subtotal + delivery;
+                subtotal = convertToString(subtotal);
+                delivery = convertToString(delivery);
+                nett = convertToString(nett);
+                $("#subtotal").val(subtotal);
+                $("#delivery").val(delivery);
+                $("#nett").val(nett);
+              });
             });
           });
         });
-      });
-    } else {
-      // window.localStorage.removeItem("myIPAddress");
-    }
+      } else {
+        // window.localStorage.removeItem("myIPAddress");
+      }
+ 
   }
 
   function onlyUnique(value, index, self) {
